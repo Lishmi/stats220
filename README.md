@@ -14,5 +14,6 @@
 3. Marine 202
 4. Stats 220 (obv)
 
+Here is the link to the course outline of my favourite class of the semester so far: [STATS 220](https://courseoutline.auckland.ac.nz/dco/course/STATS/220/1213/)
 
-A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
+A meme that captures how I currently feel about my university studies is ![](https://media1.tenor.com/m/QNt5NZmzF_oAAAAd/aadit314-aadit.gif)
