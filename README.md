@@ -17,3 +17,7 @@
 Here is the link to the course outline of my favourite class of the semester so far: [STATS 220](https://courseoutline.auckland.ac.nz/dco/course/STATS/220/1213/)
 
 A meme that captures how I currently feel about my university studies is ![](https://media1.tenor.com/m/QNt5NZmzF_oAAAAd/aadit314-aadit.gif)
+
+body {
+ background: #FFEBEE
+}
