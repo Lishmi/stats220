@@ -18,6 +18,4 @@ Here is the link to the course outline of my favourite class of the semester so 
 
 A meme that captures how I currently feel about my university studies is ![](https://media1.tenor.com/m/QNt5NZmzF_oAAAAd/aadit314-aadit.gif)
 
-body {
- background: #FFEBEE
-}
+
