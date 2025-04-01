@@ -14,7 +14,6 @@ body {
   background-color: #fff0f5;    
   color: #4b0033;                
   font-family: Georgia, serif;
-  line-height: 1.6;
   margin: 30px;
 }
 
@@ -87,7 +86,7 @@ majority_of_ads <- names(which.max(table(latest_data$majority)))
 
 
 #comment
-paste("The most common type of ads during scroll sessions was", majority_of_ads, ".")
+paste("The most common type of ads during scroll sessions was", majority_of_ads, "which might reflect my browsing habits or interests. Seeing this pattern helped me understand the kinds of content that platforms are prioritising in my feed.")
 
 
 ```
@@ -107,6 +106,6 @@ ggplot(latest_data, aes(x = factor(number_ads))) +
 ``` {r}
 max_ads <- max(latest_data$number_ads, na.rm = TRUE)
 
-paste("The highest number of ads I saw in a single scroll session was", max_ads)
+paste("The highest number of ads I saw in a single scroll session was", max_ads,"which reflects the platform I tend to use the most. This pattern is important because it helps explain where the majority of ads in my dataset came from." )
 ```
 
