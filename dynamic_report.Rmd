@@ -1,105 +1,62 @@
 ---
-title: My dynamic report
-output: html_fragment
+title: "Project 2"
+output: html_document
+date: "2025-03-31"
+subtitle: 'STATS 220 Semester One 2025'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
-
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{css}
-
 body {
   color: #D60265;
   background-color: #ffffe5;
   font-family: serif
   
+}
+```
+
+## Introduction
+
+For this project, I focused on collecting data about the ads I saw during my social media scroll sessions. Every time I used Instagram or TikTok, I filled out a short form about what I saw — including whether the first post was an ad or regular content, how many ads I came across, what they were about, and how long I spent scrolling. I picked this topic because I feel like I’m constantly being targeted with ads online, and I wanted to get a better idea of how often that happens and what kind of ads I’m seeing.
+
+One of the form design guidelines I focused on was Guidline 3, making the questions easy to answer quickly. Since I was filling it out in the moment, I needed it to be super simple and not take more than 30 seconds. I used multiple choice and dropdown options where I could, and I kept the questions short and clear, asking questions I only needed.
+
+By collecting this data, I was able to analyse how many ads I usually see, which platforms show more ads, what kind of ads are most common, and whether I felt like the ads were actually relevant to me. This kind of info could be useful for understanding how social media platforms target users — or even just to see how much time we spend being advertised to without realizing it.
+
+[Here is the link to my Google Form.](https://forms.gle/inWoy4MTg9uCJNRHA)
+
+## Dynamic report
+
+
+You can view my dynamic report [here](https://lishmi.github.io/stats220/)
+
+
+
+## Creativity
+
+I believe my project demonstrates creativity through both the topic I chose and how I approached the data collection and analysis. Instead of choosing a typical example from the project brief, I focused on the ads that appear during social media scroll sessions. This felt relevant to my everyday experience and gave me the chance to explore how advertising shows up on different platforms — something I’ve always noticed but never really paid attention to in a structured way.
+
+My form design was also intentional. I used a mix of response types like multiple choice, dropdowns, and short answer with validation to make the form quick and easy to fill out on the go. This made the data collection more realistic and consistent, since I could log responses immediately after scrolling. I also made sure the form didn’t ask for any unnecessary information and explained clearly that no personal data was being collected.
+
+In my dynamic report, I chose to go beyond the required two summary values by including a third, and I spent time thinking about which visualisations would be the most informative. One of the bar charts I added shows the main topics of ads seen during scroll sessions. I included this graph because I thought it was important to not only know how often ads appear or on which platform, but also to look at what kinds of messages are being pushed to users. The chart helped me identify patterns — for example, that fashion and entertainment were the most common ad themes. This added context made my report more interesting and helped show how targeted the content we see really is. I think that’s where my creativity came in — turning simple observations into something meaningful and insightful.
+
+
+## Learning reflection
+
+One important idea I learned in Module 2 was how to create dynamic reports using RMarkdown. Before this project, I didn’t really understand how powerful RMarkdown could be — I thought it was just for writing reports. But learning how to combine code, visualisations, and inline summaries that update automatically made me realise how useful it is for sharing data stories in a more interactive way. It was cool to see how the report could change when new data was added, especially because I’d never made anything dynamic like that before.
+
+This has made me more curious about how data dashboards work, and how other tools can be used to make interactive reports or websites. I also want to explore more about how to make reports visually appealing, like with CSS or images, and how to make them more user-friendly for people who don’t have a stats background. It feels like there’s a lot of potential to make data more accessible and engaging with the right tools.
+
+
+## Appendix
+
+```{r file='exploration.R', eval=FALSE, echo=TRUE}
 
 ```
 
-## Ads seen whilst on social media
-
-This report is based on observational data collected from my own social media scroll sessions over several days. Each time I opened Instagram or TikTok, I logged key details about what I saw. I recorded whether the first post was an ad or regular content, how many ads appeared during the session, what the ads were about, which platform I was using, whether the ads felt relevant to me, and how long the scroll session lasted. The purpose of collecting this data was to explore patterns in online advertising — including how frequently ads appear, what types of ads are most common, and how personalised or targeted they seem. 
-
-
-```{r, show_col_types = FALSE}
-library(tidyverse)
-
-
-logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR6F7RwSGQIJ4_z8o1I_lDmgSY0OXXLRriy1z8NUka-mRN0jPE4P7aC3RGvcFru6V2sRU5dzZkuaV2E/pub?gid=1723247763&single=true&output=csv")
-
-#PART D making summary values and plots
-
-#rename all my varibles. 
-latest_data <- logged_data %>%
-  rename(
-    first_seen = "Was the first post or story on your feed an ad or regular content?",
-    number_ads = "How many ads did you see during this scroll session?",
-    first_ad = "What was the first ad about?",
-    majority = "What were majority of the ads about during this scroll session?",
-    platform_used = "What platform were you using when you saw the ad?",
-    ad_revelance ="Were these ads relevant to you?",
-    length_scroll = "Approximately how long was the scroll session?"
-  )
-```
-```{r}
-#ADDING BAR CHARTS
-ggplot (latest_data) +
-  geom_bar(fill= "pink",
-           aes(x=platform_used)) +
-  labs(title = "Platform Used During Scroll Session",
-       x = "Platform",
-       y = "Frequency") +
-  theme_minimal()
+```{r file='dynamic_report.Rmd', eval=FALSE, echo=TRUE}
 
 ```
-``` {r}
-average <- mean(latest_data$number_ads, na.rm = TRUE) %>% round(1)
-
-#comment
-paste("On average, social media users saw", average, "ads per scroll session")
-
-```
-
-
-```{r}
-ggplot(latest_data, aes(x = majority)) + 
-  geom_bar(fill = "salmon") +
-  labs(title = "Main Topics of Ads Seen on Social Media",
-       x = "Ad Topic",
-       y= "Count") +
-  theme_minimal()
-
-
-```
-
-```{r}
-#Second summary value( majority of the ads)
-majority_of_ads <- names(which.max(table(latest_data$majority)))
-
-
-#comment
-paste("The most common type of ads during scroll sessions was", majority_of_ads, ".")
-
-
-```
-
-
-```{r}
-ggplot(latest_data, aes(x = factor(number_ads))) +
-  geom_bar(fill = "lightpink") +
-  labs(title = "How Many Ads Were Seen Per Scroll Session",
-       x = "Number of Ads",
-       y = "Frequency") +
-  theme_minimal()
-
-
-```
-
-``` {r}
-max_ads <- max(latest_data$number_ads, na.rm = TRUE)
-
-paste("The highest number of ads I saw in a single scroll session was", max_ads)
-```
-
