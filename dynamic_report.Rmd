@@ -46,7 +46,8 @@ latest_data <- logged_data %>%
 ```{r}
 #ADDING BAR CHARTS
 ggplot (latest_data) +
-  geom_bar(aes(x=platform_used)) +
+  geom_bar(fill= "pink",
+           aes(x=platform_used)) +
   labs(title = "Platform Used During Scroll Session",
        x = "Platform",
        y = "Frequency") +
@@ -85,8 +86,20 @@ paste("The most common type of ads during scroll sessions was", majority_of_ads,
 ```
 
 
+```{r}
+ggplot(latest_data, aes(x = factor(number_ads))) +
+  geom_bar(fill = "lightpink") +
+  labs(title = "How Many Ads Were Seen Per Scroll Session",
+       x = "Number of Ads",
+       y = "Frequency") +
+  theme_minimal()
 
 
+```
 
+``` {r}
+max_ads <- max(latest_data$number_ads, na.rm = TRUE)
 
+paste("The highest number of ads I saw in a single scroll session was", max_ads)
+```
 
