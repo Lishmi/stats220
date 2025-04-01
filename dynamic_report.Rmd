@@ -30,7 +30,7 @@ h2 {
 This report is based on observational data collected from my own social media scroll sessions over several days. Each time I opened Instagram or TikTok, I logged key details about what I saw. I recorded whether the first post was an ad or regular content, how many ads appeared during the session, what the ads were about, which platform I was using, whether the ads felt relevant to me, and how long the scroll session lasted. The purpose of collecting this data was to explore patterns in online advertising — including how frequently ads appear, what types of ads are most common, and how personalised or targeted they seem. 
 
 
-```{r, show_col_types = FALSE}
+```{r}
 library(tidyverse)
 
 
