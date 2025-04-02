@@ -66,7 +66,7 @@ ggplot (latest_data) +
 average <- mean(latest_data$number_ads, na.rm = TRUE) %>% round(1)
 
 #comment
-paste("On average, social media users saw", average, "ads per scroll session")
+paste("On average, social media users saw", average, "ads per scroll session.")
 
 ```
 
